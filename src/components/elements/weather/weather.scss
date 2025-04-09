@@ -1,0 +1,38 @@
+.weather-widget {
+  background-color: rgb(0, 0, 0);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 40px 10px rgba(255, 0, 0, 0.8);
+  width: 400px; // Or any other preferred width
+
+
+.city-selector {
+  margin-bottom: 20px;
+}
+
+.city-input {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 25px;
+  border: 2px solid #ff0000;
+}
+
+.weather-info {
+  color: #ffffff;
+}
+
+.weather-info h2 {
+  margin-bottom: 10px;
+}
+
+.weather-icon {
+  width: 100px;
+  height: 100px;
+}
+
+.error {
+  color: red;
+  text-align: center;
+}
+}

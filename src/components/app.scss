@@ -1,0 +1,35 @@
+*{
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+body, html {
+  margin-top: 60px;
+  margin-bottom: 50px;
+  padding: 0;
+  background-color: black;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: row;
+  gap: 50px;
+  width: 100%;
+
+
+  .col-3 {
+    flex: 0 0 auto;
+    width: 25%;
+
+  }
+
+  .col-6 {
+    display: flex;
+    flex-direction: column;
+    align-self: stretch;
+  }
+}

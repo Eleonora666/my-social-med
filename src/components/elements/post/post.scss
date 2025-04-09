@@ -1,0 +1,113 @@
+.feed-post {
+  width: 500px;
+  margin: 30px auto;
+  background: rgb(0, 0, 0);
+  padding: 15px;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 0 40px 10px rgba(255, 0, 0, 0.8);
+  color: #ffffff;
+
+
+/* 🖼 Контент (фото/видео) */
+.post-media, .post-video {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-top: 10px;
+  cursor: pointer; /* 🔍 Курсор для увеличения */
+  transition: transform 0.3s ease-in-out;
+
+}
+
+
+.post-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+
+}
+
+
+.author-avatar {
+  object-fit: cover;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: 2px solid #ff0000;
+  cursor: pointer; 
+  transition: transform 0.2s ease-in-out;
+  margin-bottom: 10px;
+}
+
+.author-avatar:hover {
+  transform: scale(1.1);
+}
+
+/* ℹ️ Информация об авторе */
+.author-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  line-height: 1.2;
+  cursor: pointer;
+  color: #ffffff;
+
+
+/* 📌 Имя автора */
+.author-name {
+  font-weight: bold;
+  font-size: 16px;
+  color: #ffffff;
+  margin-top: 30px;
+  margin-left: 30px;
+}
+}
+
+
+
+/* 🏆 Действия с постом */
+.post-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  color: #ffffff;
+  white-space: pre-wrap;
+}
+
+
+/* 🔘 Кнопки лайков и удаления */
+.like-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  transition: 0.2s;
+  color: #ffffff;
+
+}
+
+.like-button:hover {
+  color: red;
+}
+
+.delete-button:hover {
+  color: #ff0000;
+}
+.post-video-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.post-video {
+  width: 100%;  /* Занимает всю ширину блока */
+  height: 315px; /* Высота, как у YouTube */
+  border-radius: 10px; /* Округляем углы */
+}
+}

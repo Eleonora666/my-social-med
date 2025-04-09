@@ -1,0 +1,166 @@
+.page {
+    .collum {
+        display: flex;
+        justify-content: space-around;
+
+        div {
+            width: 25%;
+            height: 100%;
+            background: #000000;
+            border-radius: 20px;
+            overflow: hidden;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            margin-left: 30px;
+            box-shadow: 0 0 40px 10px rgba(255, 0, 0, 0.8);
+            margin-bottom: 150px;
+
+            img {
+                margin-top: 30px;
+                width: 250px;
+                height: 200px;
+
+            }
+
+            h1 {
+                color: rgb(255, 255, 255);
+                font-size: 24px;
+            }
+
+            button {
+                background: #ff0000;
+                color: white;
+                border: none;
+                padding: 10px;
+                margin-bottom: 30px;
+                border-radius: 20px;
+                width: 40%;
+                font-size: 16px;
+                cursor: pointer;
+
+                &:hover {
+                    background: #de0000 !important;
+                }
+            }
+        }
+
+    }
+    // Mobile styles
+    @media screen and (max-width: 820px) {
+        .collum {
+            justify-content: center;
+            flex-direction: row;
+            padding: 0px;
+            margin-left: 30px;
+            margin-right: 30px;
+            gap: 40px;
+        }
+
+        .collum div {
+            width: 90%;
+            margin-left: 0;
+            margin-bottom: 30px;
+        }
+
+        img {
+
+            max-width: 250px;
+        }
+
+        h1 {
+            font-size: 20px;
+        }
+
+        button {
+            width: 80%;
+            font-size: 14px;
+            padding: 8px;
+        }
+    }
+
+    @media screen and (max-width: 768px) {
+        .collum {
+            justify-content: center;
+            flex-direction: column;
+            padding: 0px;
+            margin-left: 50px;
+        }
+
+        .collum div {
+            width: 90%;
+            margin-left: 0;
+            margin-bottom: 30px;
+        }
+
+        img {
+            width: 100%;
+            max-width: 250px;
+        }
+
+        h1 {
+            font-size: 20px;
+        }
+
+        button {
+            width: 80%;
+            font-size: 14px;
+            padding: 8px;
+        }
+    }
+
+    // Smaller devices (portrait phones)
+    @media screen and (max-width: 430px) {
+        .collum {
+            padding: 10px;
+            margin-right: 50px;
+        }
+
+        .collum div {
+            width: 100%;
+            margin-left: 0;
+            margin-bottom: 20px;
+        }
+
+        img {
+            max-width: 400px;
+        }
+
+        h1 {
+            font-size: 18px;
+        }
+
+        button {
+            width: 90%;
+            font-size: 14px;
+            padding: 8px;
+        }
+    }
+
+    @media screen and (max-width: 375px) {
+        .collum {
+            justify-content: center;
+            flex-direction: column;
+            padding: 5px;
+            margin-right: 50px;
+        }
+
+        .collum div {
+            width: 100%;
+            margin: 8px 0;
+        }
+
+        img {
+            max-width: 600px; // Ensure the images are not too large
+        }
+
+        h1 {
+            font-size: 16px; // Smaller heading font size
+        }
+
+        button {
+            width: 90%; // Make button slightly bigger for easy tapping
+            font-size: 12px;  // Adjust button font size for smaller screens
+            padding: 8px;
+        }
+    }
+}

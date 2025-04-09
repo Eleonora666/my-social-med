@@ -1,0 +1,94 @@
+.create-post-container {
+  margin: 50px auto;
+  padding: 30px;
+  background-color: #000000;
+  border-radius: 10px;
+  box-shadow: 0 0 40px 10px rgb(255, 0, 0);
+  text-align: center;
+  max-width: 700px;
+
+  h1 {
+    font-size: 26px;
+    margin-bottom: 20px;
+    color: #ffffff;
+    font-weight: bold;
+  }
+
+  .create-post-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+
+      label {
+        font-size: 14px;
+        font-weight: 600;
+        margin-bottom: 5px;
+        color: #ffffff;
+      }
+
+      input,
+          textarea {
+              width: 100%;
+              padding: 10px;
+              border: 1px solid #000000;
+              border-radius: 5px;
+              font-size: 16px;
+              color: #ffffff;
+              transition: border-color 0.3s ease;
+              background-color: #2b2b2bd1;
+
+              &:focus {
+                  border-color: #ff0000;
+                  outline: none;
+              }
+          }
+
+      textarea {
+        resize: none;
+        min-height: 120px;
+      }
+    }
+
+    .error-msg {
+      color: #d9534f;
+      font-size: 14px;
+      background: #f8d7da;
+      padding: 10px;
+      border-radius: 10px;
+    }
+
+    .form-actions {
+      display: flex;
+      justify-content: center;
+
+      .submit-btn {
+        background: red;
+        color: #ffffff;
+        font-size: 16px;
+        font-weight: bold;
+        border: none;
+        padding: 14px 20px;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+
+        &:hover {
+          background:  #ff0000;
+          box-shadow: 0 8px 20px rgba(255, 0, 85, 0.4);
+        }
+
+        &:disabled {
+          background: #aaa;
+          cursor: not-allowed;
+          box-shadow: none;
+        }
+      }
+    }
+    
+  }
+}
