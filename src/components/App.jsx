@@ -18,7 +18,6 @@ import GamePage from "./pages/games/GamePage";
 import Puzzle from "./pages/games/puzzle/Puzzle";
 import Snake from "./pages/games/snake/Snake";
 
-
 const Layout = () => (
   <>
     <Navigation />

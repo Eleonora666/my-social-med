@@ -10,7 +10,6 @@ const UserProfile = () => {
     const { username: viewedUsername } = useParams();
     const { token, username: myUsername } = useSelector((state) => state.user);
     const navigate = useNavigate();
-
     const [profileData, setProfileData] = useState(null);
     const [posts, setPosts] = useState([]);
     const [isFollowing, setIsFollowing] = useState(false);
@@ -82,23 +81,7 @@ const UserProfile = () => {
         fetchFollowing();
     }, [token, viewedUsername, myUsername]);
 
-    const toggleFollow = async () => {
-        const url = `http://49.13.31.246:9191/${isFollowing ? "unfollow" : "follow"}`;
-        try {
-            const response = await fetch(url, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                    "x-access-token": token,
-                },
-                body: JSON.stringify({ username: viewedUsername }),
-            });
-            if (!response.ok) throw new Error(`Error ${isFollowing ? "unfollowing" : "following"}`);
-            setIsFollowing(!isFollowing);
-        } catch (err) {
-            console.error(err.message);
-        }
-    };
+   
     const getYouTubeEmbedUrl = (url) => {
         const regExp = /^.*(youtu.be\/|youtube.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))([^#&?]*).*/;
         const match = url.match(regExp);

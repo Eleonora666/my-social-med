@@ -34,6 +34,7 @@ $input-padding: 12px 18px;
         width: 70px;
         margin-right: 20px;
       }
+ 
 
       .search-form {
         padding: 8px 12px;
@@ -248,7 +249,7 @@ $input-padding: 12px 18px;
     }
 
     .search-form {
-      display: none; // Hide search form on very small screens
+      display: none; 
     }
   }
 

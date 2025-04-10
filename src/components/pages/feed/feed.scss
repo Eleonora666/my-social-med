@@ -11,16 +11,14 @@
 }
 .scroll-to-top {
   position: fixed;
-  bottom: 20px;  /* Расстояние от низа */
-  right: 20px;   /* Расстояние от правого края */
-  background-color: #ff0000;  /* Цвет фона */
-  color: rgb(0, 0, 0);  /* Цвет текста */
+  bottom: 20px;  
+  right: 20px;  
+  background-color: #ff0000; 
+  color: rgb(0, 0, 0);  
   border: none;
   padding: 12px 15px;
-  border-radius: 20px;  /* Круглая форма */
-  font-size: 14px;  /* Размер текста */
+  border-radius: 20px; 
+  font-size: 14px;  
   cursor: pointer;
-
-
 }
 

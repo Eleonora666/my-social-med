@@ -108,4 +108,15 @@
   color: #888;
   padding: 10px;
 }
+@media (max-width: 768px) {
+  .profile-card {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .profile-card {
+    width: 100%;
+  }
+}
 }

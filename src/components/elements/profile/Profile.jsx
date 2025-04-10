@@ -8,7 +8,6 @@ const Profile = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { token, posts = [] } = useSelector((state) => state.user); // Гарантируем, что posts всегда массив
-  // const token = localStorage.getItem(token)
   const [profileData, setProfileData] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
