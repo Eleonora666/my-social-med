@@ -10,7 +10,6 @@ const Post = () => {
 	const [feedData, setFeedData] = useState([]);
 	const [error, setError] = useState(null);
 	const [loading, setLoading] = useState(false);
-	const [fullscreenImage, setFullscreenImage] = useState(null);
 	const navigate = useNavigate();
 	
 	useEffect(() => {
@@ -122,7 +121,6 @@ const Post = () => {
 									src={post.image}
 									alt="Post Image"
 									className="post-media"
-									onClick={() => setFullscreenImage(post.image)}
 									loading="lazy"
 								/>
 							)}
@@ -141,7 +139,7 @@ const Post = () => {
 								</div>
 							) : post.video ? (
 								<a href={post.video} target="_blank" rel="noopener noreferrer">
-									📺 Watch Video
+									 Watch Video
 								</a>
 							) : null}
 							
@@ -163,12 +161,6 @@ const Post = () => {
 				</div>
 			</div>
 			
-			{/* ✅ Fullscreen Image Modal */}
-			{fullscreenImage && (
-				<div className="fullscreen-image" onClick={() => setFullscreenImage(null)}>
-					<img src={fullscreenImage} alt="Fullscreen Image" />
-				</div>
-			)}
 		</div>
 	);
 };

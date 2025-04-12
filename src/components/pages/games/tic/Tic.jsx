@@ -7,7 +7,6 @@ const Tic = () => {
     const [gameOver, setGameOver] = useState(false);
     const [message, setMessage] = useState('');
     const [score, setScore] = useState({ X: 0, O: 0 });
-    const [isBot, setIsBot] = useState(false);
     const [winningCells, setWinningCells] = useState([]);
 
     const winningPattern = [
@@ -34,11 +33,11 @@ const Tic = () => {
 
     const handleClick = (index) => {
         if (gameOver || board[index] !== '') return;
-
+    
         const newBoard = [...board];
         newBoard[index] = xTurn ? 'X' : 'O';
         setBoard(newBoard);
-
+    
         if (checkWin(newBoard)) {
             const winner = xTurn ? 'X' : 'O';
             setMessage(`${winner} Wins!`);
@@ -49,16 +48,7 @@ const Tic = () => {
             setGameOver(true);
         } else {
             setXTurn(!xTurn);
-            if (isBot && xTurn) {
-                setTimeout(() => botMove(newBoard), 500);
-            }
         }
-    };
-
-    const botMove = (brd) => {
-        const emptyIndices = brd.map((val, i) => val === '' ? i : null).filter(i => i !== null);
-        const randomIndex = emptyIndices[Math.floor(Math.random() * emptyIndices.length)];
-        handleClick(randomIndex);
     };
 
     const resetGame = () => {
@@ -69,21 +59,12 @@ const Tic = () => {
         setWinningCells([]);
     };
 
-    const toggleMode = () => {
-        resetGame();
-        setIsBot(!isBot);
-    };
-
     return (
         <div className="wrapper">
             <div className="scoreboard">
                 <p>Player X: {score.X}</p>
                 <p>Player O: {score.O}</p>
             </div>
-
-            <button id="mode-toggle" onClick={toggleMode}>
-                Mode: {isBot ? 'Play with Bot' : '2 Players'}
-            </button>
 
             <div className="container">
                 {board.map((value, index) => (

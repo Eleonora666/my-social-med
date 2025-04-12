@@ -9,10 +9,10 @@ const User = () => {
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [following, setFollowing] = useState(new Set()); // ✅ User's subscriptions
-  const navigate = useNavigate(); // ✅ For navigating to profile page
+  const [following, setFollowing] = useState(new Set()); //  User's subscriptions
+  const navigate = useNavigate(); //  For navigating to profile page
   
-  // 📌 Load all users and my subscriptions
+  //  Load all users and my subscriptions
   useEffect(() => {
     if (!token) {
       setError("❌ Error: Token not found.");
@@ -33,7 +33,7 @@ const User = () => {
         
         const data = await response.json();
         
-        // ✅ Exclude the current user from the list
+        //  Exclude the current user from the list
         const filteredUsers = data.filter(user => user.username !== username);
         setUsers(filteredUsers);
       } catch (err) {
@@ -53,7 +53,7 @@ const User = () => {
         if (!response.ok) throw new Error("Error loading subscriptions");
         
         const data = await response.json();
-        const myFollowing = new Set(data.following.map((u) => u.username)); // ✅ Create a Set from subscriptions
+        const myFollowing = new Set(data.following.map((u) => u.username)); //  Create a Set from subscriptions
         setFollowing(myFollowing);
       } catch (err) {
         console.error("❌ Error loading subscriptions:", err.message);
@@ -66,7 +66,7 @@ const User = () => {
     fetchMyFollowing();
   }, [token, username]);
   
-  // 📌 Follow / Unfollow
+  //  Follow / Unfollow
   const toggleFollow = async (userToFollow) => {
     const isFollowing = following.has(userToFollow);
     const url = `http://49.13.31.246:9191/${isFollowing ? "unfollow" : "follow"}`;
@@ -82,7 +82,7 @@ const User = () => {
       });
       if (!response.ok) throw new Error(`Error ${isFollowing ? "unfollowing" : "following"}`);
       
-      // 📌 Update UI instantly
+
       setFollowing((prev) => {
         const updatedSet = new Set(prev);
         if (isFollowing) {
@@ -97,7 +97,7 @@ const User = () => {
     }
   };
   
-  // 📌 UI handling for errors and loading
+  //  UI handling for errors and loading
   if (loading) return <div className="loading">⏳ Loading...</div>;
   if (error) return <div className="error-msg">{error}</div>;
   
@@ -107,14 +107,14 @@ const User = () => {
       <div className="user-list">
         {users.map((userItem) => (
           <div key={userItem._id} className="user-item">
-            {/* ✅ Click on avatar or name redirects to the profile */}
+            {/*  Click on avatar or name redirects to the profile */}
             <div className="user-info" onClick={() => navigate(`/user/${userItem.username}`)}>
               <img src={userItem.avatar || avatar} alt="Avatar" className="user-avatar" />
               <h4>{userItem.fullName || "No name"}</h4>
               <p>@{userItem.username}</p>
             </div>
             
-            {/* ✅ Follow / Unfollow button */}
+            {/* Follow / Unfollow button */}
             <button
               className={`follow-btn ${following.has(userItem.username) ? "following" : ""}`}
               onClick={() => toggleFollow(userItem.username)}

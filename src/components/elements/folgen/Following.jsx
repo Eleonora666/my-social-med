@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import avatar from '../../images/png-transparent-default-avatar-thumbnail.png';
 import './followerMy.scss'
-import ScrollUp from '../../elements/scroll/ScrollUp';
+import ScrollUp from '../scroll/ScrollUp';
 
 const FolgeIch = () => {
 	const { token, username } = useSelector((state) => state.user);

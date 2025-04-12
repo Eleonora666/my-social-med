@@ -3,14 +3,14 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import "./followers.scss";
 import avatar from '../../images/png-transparent-default-avatar-thumbnail.png';
-import ScrollUp from '../../elements/scroll/ScrollUp';
+import ScrollUp from '../scroll/ScrollUp';
 
 const Followers = () => {
 	const { token, username } = useSelector((state) => state.user);
 	const [followers, setFollowers] = useState([]);
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState(null);
-	const navigate = useNavigate(); // ✅ For navigating to the profile page
+	const navigate = useNavigate();
 
 	useEffect(() => {
 		if (!token || !username) {
@@ -34,13 +34,12 @@ const Followers = () => {
 				let data = await response.json();
 				console.log("🔍 SERVER RESPONSE (followers):", data);
 
-				// ✅ Now get the list of followers from `data.followers`
 				if (data && Array.isArray(data.followers)) {
 					console.log("✅ Found followers:", data.followers);
 					setFollowers(data.followers);
 				} else {
 					console.warn("⚠️ No followers or the response format has changed!");
-					setFollowers([]); // If there are no followers
+					setFollowers([]);
 				}
 			} catch (err) {
 				console.error("❌ Error fetching followers:", err.message);
@@ -55,9 +54,6 @@ const Followers = () => {
 
 	if (loading) return <div className="followers-loading">⏳ Loading...</div>;
 	if (error) return <div className="followers-error">{error}</div>;
-
-	console.log("✅ Final list of followers:", followers);
-
 	if (!followers || followers.length === 0) return <div className="followers-empty">❌ No followers</div>;
 
 	return (
